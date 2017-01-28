@@ -74,6 +74,11 @@
 							<formats>
 								<format>xml</format>
 							</formats>
+							<instrumentation>
+								<excludes>
+									<exclude>org/dakkala/uhca/helloworld/HelloWorldApplication.class</exclude>
+								</excludes>
+							</instrumentation>
 						</configuration>
 					</plugin>
 				</plugins>
