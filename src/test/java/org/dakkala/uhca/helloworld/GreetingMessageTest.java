@@ -24,5 +24,14 @@ public class GreetingMessageTest {
 		String greeting=gm.getGreeting("Achuth");
 		Assert.assertEquals("Good Night Achuth", greeting);
 	}
+	
+	
+	@Test
+	public void check_if_niether() {
+		GreetingMessage gm=Mockito.spy(GreetingMessage.class);
+		Mockito.when(gm.AMorPM()).thenReturn(Calendar.HOUR);
+		String greeting=gm.getGreeting("Achuth");
+		Assert.assertEquals("Hello Achuth", greeting);
+	}
 
 }
