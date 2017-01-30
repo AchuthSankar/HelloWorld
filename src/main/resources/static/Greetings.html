@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Greetings</title>
+<script type="text/javascript" src="jquery-3.1.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#greet").on("click", function() {
+			var name=$("#name").val();
+			$.get("/hello/"+name).done(function(msg){
+				$("#message").html("<h1>"+msg+"</h1>");
+			})
+		});
+	});
+</script>
+</head>
+<body>
+	<input type="text" id="name" name="name" value=""/>
+	<input type="button" id="greet" name="greet" value="Greet Me"/>
+	<div id="message"></div>
+</body>
+</html>
