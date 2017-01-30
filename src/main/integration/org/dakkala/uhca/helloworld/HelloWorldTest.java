@@ -18,6 +18,7 @@ public class HelloWorldTest {
 														// it doesn't work.
 		//WebDriver webDriver = new ChromeDriver(); // launches Chrome browser,
 		RemoteWebDriver webDriver=new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), DesiredCapabilities.chrome());
+		webDriver.manage().window().maximize();
 		webDriver.get(url); // Load the website
 		Thread.sleep(5000); // Make the thread wait for 5 seconds, just to make
 							// sure the website loads
