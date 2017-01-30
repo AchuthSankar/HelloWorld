@@ -13,7 +13,7 @@ public class GreetingMessageTest {
 		GreetingMessage gm=Mockito.spy(GreetingMessage.class);
 		Mockito.when(gm.AMorPM()).thenReturn(Calendar.AM);
 		String greeting=gm.getGreeting("Achuth");
-		Assert.assertEquals("Good Morning Achuth", greeting);
+		Assert.assertEquals("Good Morning Achuth!!!", greeting);
 	}
 	
 	
@@ -22,7 +22,7 @@ public class GreetingMessageTest {
 		GreetingMessage gm=Mockito.spy(GreetingMessage.class);
 		Mockito.when(gm.AMorPM()).thenReturn(Calendar.PM);
 		String greeting=gm.getGreeting("Achuth");
-		Assert.assertEquals("Good Night Achuth", greeting);
+		Assert.assertEquals("Good Night Achuth!!!", greeting);
 	}
 	
 	
@@ -31,7 +31,7 @@ public class GreetingMessageTest {
 		GreetingMessage gm=Mockito.spy(GreetingMessage.class);
 		Mockito.when(gm.AMorPM()).thenReturn(Calendar.HOUR);
 		String greeting=gm.getGreeting("Achuth");
-		Assert.assertEquals("Hello Achuth", greeting);
+		Assert.assertEquals("Hello Achuth!!!", greeting);
 	}
 
 }
