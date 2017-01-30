@@ -1,16 +1,23 @@
 package org.dakkala.uhca.helloworld;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class HelloWorldTest {
-	public void test() throws InterruptedException {
+	public void test() throws InterruptedException, MalformedURLException {
 		String url = "http://localhost/Greetings.html"; // Make sure we add
 														// http:// , otherwise
 														// it doesn't work.
-		WebDriver webDriver = new ChromeDriver(); // launches Chrome browser,
+		//WebDriver webDriver = new ChromeDriver(); // launches Chrome browser,
+		RemoteWebDriver webDriver=new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), DesiredCapabilities.chrome());
 		webDriver.get(url); // Load the website
 		Thread.sleep(5000); // Make the thread wait for 5 seconds, just to make
 							// sure the website loads
@@ -28,14 +35,14 @@ public class HelloWorldTest {
 		WebElement greetings = webDriver.findElement(By.id("message"));
 		// Next step is doing validations using Junit's Asserts or using manual
 		// validation, its left to implementation.
-		webDriver.quit(); // Close the firefox
+		webDriver.quit(); // Close the chrome
 	}
 
 	public static void main(String[] args) {
 		try {
 			System.setProperty("webdriver.chrome.driver", "./3rd_party/chromedriver.exe");
 			new HelloWorldTest().test();
-		} catch (InterruptedException e) {
+		} catch (InterruptedException | MalformedURLException e) {
 			e.printStackTrace();
 		}
 	}
